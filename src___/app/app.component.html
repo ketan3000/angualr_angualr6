@@ -1,0 +1,18 @@
+<div>
+  <h2>Hello {{name}}</h2>
+</div>
+
+<div *ngFor="let fabricType of fabricTypes">
+  <input type="checkbox" [(ngModel)]="fabricType.selected" /> {{fabricType.name}}
+</div>
+
+<br>
+
+<div *ngFor="let colour of fabricColours">
+  <input type="checkbox" [(ngModel)]="colour.selected" />{{colour.name}}
+</div>
+
+<pre>
+
+</pre>
+<div *ngFor="let fabric of fabrics | fabricType: selectedFabricTypes | countColour: selectedFabricColor">{{fabric.name}}</div>

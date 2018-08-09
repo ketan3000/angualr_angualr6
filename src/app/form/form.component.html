@@ -1,0 +1,19 @@
+<form [formGroup]="form" (ngSubmit)="onsubmit">
+  <div formGroupName="store">
+    <input type="text" formControlName="branch" placeholder="Branch ID">
+    <div class="error" *ngIf="form.get('store.branch').hasError('required') && form.get('store.branch').touched">
+      <div class="alert alert-danger" role="alert">
+        required
+      </div>
+    </div>
+    <div class="error" *ngIf="form.get('store.branch').hasError('minlength') && form.get('store.branch').touched">
+      <div class="alert alert-danger" role="alert">
+        min lenght
+      </div>
+    </div>
+    <input type="text" formControlName="code" placeholder="Manager Code">
+    <button type="submit" class="btn btn-info" [disabled]="form.invalid">Order Stock</button>
+  </div>
+  
+  <pre> {{form.value | json}} </pre>
+</form>
